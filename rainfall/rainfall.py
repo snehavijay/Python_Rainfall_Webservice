@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class RainfallData(object):
     def __init__(self, data, location):
         self.data = data
@@ -15,15 +17,14 @@ class RainfallData(object):
                 if k == 'name':
                    if ((location).replace(" ", "") == v.replace(" ", "")):
                         found_data['name'] = v
-                        found_data['time'] = (data['items'][0]['timestamp']).split("+")[0]
+                        found_data['time'] = (data['items'][0]['timestamp']).split("+")[0].split("T")[1]
                         station_id = station_data[i]['id']
-                print(k)
-                print(v)
         for j in range(len(readings_data)):
             for k1, v1  in readings_data[j].items():
                 if k1 == 'station_id' and v1 == station_id :
                    raining_value = readings_data[j]['value']
-                   if int(raining_value) == 0:
+                   found_data['mm'] = str(raining_value) +"mm"
+                   if float(raining_value) == 0.0:
                        found_data['is_raining'] = "Not Raining"
                    else:
                        found_data['is_raining'] = "Raining"
