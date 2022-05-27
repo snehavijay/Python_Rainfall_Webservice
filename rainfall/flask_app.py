@@ -9,9 +9,9 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 logger = logging.getLogger('__name__')
+logger.info('Rainfall Service Started' )
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
@@ -24,9 +24,9 @@ def home():
             request_data = urllib.request.urlopen(config['url'])
             listed_data = yaml.safe_load( request_data )
             rainfallObj = RainfallData(listed_data, config['location'])
-            return (rainfallObj.get_rainfall_data())
+            return ("<h2 style='color:blue'>"+rainfallObj.get_rainfall_data() +"</h2>")
     except:
-        logger.error('Something went wrong.')
+        logger.error('Something wrong with config file or API site is not available.')
     return ("Site is in maintenance mode, and will get back soon !")
 
 if __name__ == '__main__':
