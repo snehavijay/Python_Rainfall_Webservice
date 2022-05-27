@@ -10,14 +10,14 @@ The parameters are stored in app.config file.
 <p>This is docker based application. Clone this repo and create a docker image. 
 
 *We can build the image from the following command.*
-'''
+```
 docker build -t <docker-image-name>:<version> .
-'''
+```
 *We need to push docker image to docker registry if we want to deploy in kubernetes.*
-'''
+```
 docker tag <docker-image-name>:<version> <docker-registry>/<docker-image-name>:<version>
 docker push <docker-registry>/<docker-image-name>:<version>
-'''
+```
 
 In this docker based app, Ngnix is acting as a front end reverse proxy and listening on port 8080.
 </p>
