@@ -19,7 +19,6 @@ docker tag <docker-image-name>:<version> <docker-registry>/<docker-image-name>:<
 docker push <docker-registry>/<docker-image-name>:<version>
 '''
 
-
 In this docker based app, Ngnix is acting as a front end reverse proxy and listening on port 8080.
 </p>
 
