@@ -29,11 +29,11 @@ In this docker based app, Ngnix is acting as a front end reverse proxy and liste
 
 ### Deployment on kubernetes
 
-*Run below command from repo root dir to deploy config map*
+*Run below command from repo root dir to deploy config map.*
 ```
 kubectl apply -f k8s/configMaps.yaml 
 ```
-*Run below command from repo root dir to deploy pod named rainfall*
+*Run below command from repo root dir to deploy pod named rainfall.*
 ```
 kubectl apply -f k8s/pod.yaml
 ```
