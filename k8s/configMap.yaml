@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rainfall-config
+data:
+  app.config: |-
+    url: 'https://api.data.gov.sg/v1/environment/rainfall'
+    location: 'Woodlands Road'
