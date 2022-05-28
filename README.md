@@ -22,8 +22,24 @@ docker push <docker-registry>/<docker-image-name>:<version>
 In this docker based app, Ngnix is acting as a front end reverse proxy and listening on port 8080.
 </p>
 
-### Creating Kubernetes yaml file
+### Kubernetes yaml file
+<p> kubernetes yaml files are located in k8s folder. 
+1. update the docker image information in pod.yaml file.
+2. update location in configMap.yaml *available location can be found at https://api.data.gov.sg/v1/environment/rainfall* </p>
 
 ### Deployment on kubernetes
 
+*Run below command from repo root dir to deploy config map*
+```
+kubectl apply -f k8s/configMaps.yaml 
+```
+*Run below command from repo root dir to deploy pod named rainfall*
+```
+kubectl apply -f k8s/pod.yaml
+```
 
+**Verification**
+1. exec into pods ```kubectl exec -it rainfall -- bash```
+2. run curl to check webpage ```curl -v http://localhost:8080```
+
+*Further we can create a k8s service to access webpage from outside pod.*
