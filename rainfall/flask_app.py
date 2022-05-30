@@ -4,19 +4,22 @@ import yaml
 import urllib
 from urllib import request
 import requests
-
+import os
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 logger = logging.getLogger('__name__')
 logger.info('Rainfall Service Started' )
 
+file_path = os.path.abspath(os.path.dirname(__file__))
+
 app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
     try:
-        with open("config/app.config", "r") as f:
+        confPath = file_path + "/config/app.config"
+        with open(confPath, "r") as f:
             config = yaml.safe_load(f)
         r = requests.get(config['url'])
         if r.status_code == 200:
