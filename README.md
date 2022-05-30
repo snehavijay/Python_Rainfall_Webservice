@@ -9,6 +9,11 @@ Ngnix has been used as a production webserver to deal with clients requests.
 <p> Python source code are in ranifall folder. This app need two parameters named location and url (api url where real-time weather info is available). 
 The parameters are stored in rainfall/app.config file. </p>
 
+### Run Unit test
+1. clone the repo. 
+2. cd inside the source dir *rainfall*
+3. run ``` python3 -m unittest ```
+
 ### Run this application on local machine for testing
 If we want to run this application on our local machine directly without docker then we need to  
 1. Install python3  
