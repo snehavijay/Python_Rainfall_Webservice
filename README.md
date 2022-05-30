@@ -1,22 +1,22 @@
 # Webservice to display real-time raining data for a particular location.
 
-### This application is using the Python3, Flask, uWSGI and Nginx.
+### This application is developed in Python3 programming language and using Flask, uWSGI as local web server. 
+Ngnix has been used as a production webserver to deal with clients requests. 
 
-<p>This app will fetch the real-time weather info from https://api.data.gov.sg/v1/environment/rainfall and display the raining data for given location.
+<p>This app will fetch real-time weather info from https://api.data.gov.sg/v1/environment/rainfall and display raining data for a given location.
 </p>
 
 <p> Python source code are in ranifall folder. This app need two parameters named location and url (api url where real-time weather info is available). 
 The parameters are stored in rainfall/app.config file. </p>
 
 ### Run this application on local machine for testing
-<p>
 If we want to run this application on our local machine directly without docker then we need to  
 1. Install python3  
 2. Install modules listed in requirements.txt. 
   ```pip3 install -r requirements.txt``` 
-3. Start application ``` python3 rainfall/flask_app.py ``` 
-4. App can be access on http://127.0.0.1:5000  once service starts successfully.
-</p>
+3. Start application ``` python3 rainfall/flask_app.py ```  
+4. App can be access on http://127.0.0.1:5000  once service starts successfully. 
+
 
 ### Run this app as a docker container 
 <p>This application can be deployed as a docker container. Clone this repo and create a docker image.
