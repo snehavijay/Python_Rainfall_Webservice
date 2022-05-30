@@ -1,19 +1,32 @@
 # Webservice to display real-time raining data for a particular location.
 
-### This application using the Python, Flask, uWSGI and Nginx. 
+### This application is using the Python3, Flask, uWSGI and Nginx.
 
 <p>This app will fetch the real-time weather info from https://api.data.gov.sg/v1/environment/rainfall and display the raining data for given location.
-This app need two parameters named location and url (api url where real-time weather info is available). 
-The parameters are stored in app.config file.
 </p>
 
-<p>This is docker based application. Clone this repo and create a docker image. 
+<p> Python source code are in ranifall folder. This app need two parameters named location and url (api url where real-time weather info is available). 
+The parameters are stored in rainfall/app.config file. </p>
+
+### Run this application on local machine for testing
+<p>
+If we want to run this application on our local machine directly without docker then we need to  
+1. Install python3  
+2. Install modules listed in requirements.txt. 
+  ```pip3 install -r requirements.txt``` 
+3. Start application ``` python3 rainfall/flask_app.py ``` 
+4. App can be access on http://127.0.0.1:5000  once service starts successfully.
+</p>
+
+### Run this app as a docker container 
+<p>This application can be deployed as a docker container. Clone this repo and create a docker image.
 
 *We can build the image from the following command.*
 ```
 docker build -t <docker-image-name>:<version> .
 ```
 *We need to push docker image to docker registry if we want to deploy in kubernetes.*
+
 ```
 docker tag <docker-image-name>:<version> <docker-registry>/<docker-image-name>:<version>
 docker push <docker-registry>/<docker-image-name>:<version>
@@ -27,7 +40,7 @@ In this docker based app, Ngnix is acting as a front end reverse proxy and liste
 1. update the docker image information in pod.yaml file.
 2. update location in configMap.yaml *available location can be found at https://api.data.gov.sg/v1/environment/rainfall* </p>
 
-### Deployment on kubernetes
+### Deploy docker image on kubernetes
 
 *Run below command from repo root dir to deploy config map.*
 ```
